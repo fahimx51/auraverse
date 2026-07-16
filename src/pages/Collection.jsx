@@ -9,7 +9,7 @@ function Collection() {
     const { products } = useContext(ShopContext);
 
     const [showFilter, setShowFilter] = useState(false);
-    const [filteredProducts, setFilteredProducts] = useState(products);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -18,7 +18,6 @@ function Collection() {
     useEffect(() => {
         const uniqueCategories = [...new Set(products.map((product) => product.category))];
         setCategories(uniqueCategories);
-        setFilteredProducts(products);
     }, [products]);
 
 
@@ -32,7 +31,7 @@ function Collection() {
         }
     };
 
-    const applyFilter = () => {
+    const filterAndSortProducts = () => {
         let productsCopy = products.slice();
 
         if (selectedCategories.length > 0) {
@@ -41,12 +40,6 @@ function Collection() {
             );
         }
 
-        setFilteredProducts(productsCopy);
-    };
-
-    const applySort = () => {
-
-        let productsCopy = filteredProducts.slice();
 
         switch (sortType) {
             case "low-high":
@@ -56,28 +49,22 @@ function Collection() {
                 productsCopy.sort((a, b) => b.price - a.price);
                 break;
             default:
-                return;
+                break;
         }
 
         setFilteredProducts(productsCopy);
     };
 
     useEffect(() => {
-        applyFilter();
-    }, [selectedCategories]);
-    
-
-    useEffect(() => {
-        applySort();
-    }, [sortType]);
-
+        filterAndSortProducts();
+    }, [products, selectedCategories, sortType]);
 
     return (
         <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
-
-            {/* Filter Options  */}
+            
+            {/* Filter Options */}
             <div className="min-w-60">
-                <div onClick={() => setShowFilter(!showFilter)} className='my-2 text-md md:text-xl flex item-center cursor-pointer gap-2'>
+                <div onClick={() => setShowFilter(!showFilter)} className='my-2 text-md md:text-xl flex items-center cursor-pointer gap-2'>
                     <p>FILTERS</p>
                     <img
                         src={assets.dropdown_icon}
@@ -109,13 +96,13 @@ function Collection() {
                         <TitleSection text1={'ALL '} text2={'COLLECTIONS'} />
                     </div>
 
-                    {/* Product Sort  */}
+                    {/* Product Sort */}
                     <select
                         onChange={(e) => setSortType(e.target.value)}
                         value={sortType}
                         className="border-2 border-gray-300 text-sm px-2"
                     >
-                        <option value="relavant">Sort By : Relavant</option>
+                        <option value="relavant">Sort By : Relevant</option>
                         <option value="low-high">Sort By : Price Low to High</option>
                         <option value="high-low">Sort By : Price High to Low</option>
                     </select>
@@ -130,9 +117,8 @@ function Collection() {
                     }
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default Collection
+export default Collection;
