@@ -7,15 +7,69 @@ import ProductItem from '../components/ProductItem';
 function Collection() {
 
     const { products } = useContext(ShopContext);
-    const [showFilter, setShowFilter] = useState(false);
 
+    const [showFilter, setShowFilter] = useState(false);
+    const [filteredProducts, setFilteredProducts] = useState(products);
     const [categories, setCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]);
+
+    const [sortType, setSortType] = useState("relavant");
 
     useEffect(() => {
         const uniqueCategories = [...new Set(products.map((product) => product.category))];
         setCategories(uniqueCategories);
+        setFilteredProducts(products);
     }, [products]);
 
+
+    const toggleCategory = (e) => {
+        const value = e.target.value;
+
+        if (selectedCategories.includes(value)) {
+            setSelectedCategories((prev) => prev.filter((item) => item !== value));
+        } else {
+            setSelectedCategories((prev) => [...prev, value]);
+        }
+    };
+
+    const applyFilter = () => {
+        let productsCopy = products.slice();
+
+        if (selectedCategories.length > 0) {
+            productsCopy = productsCopy.filter((item) =>
+                selectedCategories.includes(item.category)
+            );
+        }
+
+        setFilteredProducts(productsCopy);
+    };
+
+    const applySort = () => {
+
+        let productsCopy = filteredProducts.slice();
+
+        switch (sortType) {
+            case "low-high":
+                productsCopy.sort((a, b) => a.price - b.price);
+                break;
+            case "high-low":
+                productsCopy.sort((a, b) => b.price - a.price);
+                break;
+            default:
+                return;
+        }
+
+        setFilteredProducts(productsCopy);
+    };
+
+    useEffect(() => {
+        applyFilter();
+    }, [selectedCategories]);
+    
+
+    useEffect(() => {
+        applySort();
+    }, [sortType]);
 
 
     return (
@@ -39,7 +93,7 @@ function Collection() {
                         {
                             categories.map((category, index) => (
                                 <p key={index} className='flex gap-2'>
-                                    <input type="checkbox" value={category} className='w-3' />
+                                    <input type="checkbox" value={category} onChange={toggleCategory} className='w-3' />
                                     {category}
                                 </p>
                             ))
@@ -56,7 +110,11 @@ function Collection() {
                     </div>
 
                     {/* Product Sort  */}
-                    <select className='border-2 border-gray-300 text-sm px-2'>
+                    <select
+                        onChange={(e) => setSortType(e.target.value)}
+                        value={sortType}
+                        className="border-2 border-gray-300 text-sm px-2"
+                    >
                         <option value="relavant">Sort By : Relavant</option>
                         <option value="low-high">Sort By : Price Low to High</option>
                         <option value="high-low">Sort By : Price High to Low</option>
@@ -66,7 +124,7 @@ function Collection() {
                 {/* Map Products */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
                     {
-                        products.map(product =>
+                        filteredProducts.map(product =>
                             <ProductItem key={product.id} product={product} />
                         )
                     }
