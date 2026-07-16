@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import Logo from './Logo';
 
 function Navbar() {
     const isActiveClass = "px-1 border-[#92bb17] mx-2 border-b-2 rounded-none bg-transparent";
@@ -31,7 +32,9 @@ function Navbar() {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">
+                    <Logo />
+                </a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
