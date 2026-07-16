@@ -1,10 +1,15 @@
+import { useState } from "react";
 import { products } from "../data/products";
 import { ShopContext } from "./ShopContext";
 
 const ShopContextProvider = ({ children }) => {
 
+    const [cartItems, setCartItems] = useState([]);
+
     const value = {
-        products
+        products,
+        cartItems,
+        setCartItems
     };
 
     return (

@@ -101,9 +101,9 @@ export const products = [
         "name": "Women Round Neck Cotton Top",
         "category": "Topwear",
         "price": 100,
-        "image": [p_img1],
-        "rating": 4.5,
-        "colors": ["White", "Navy"],
+        "image": [p_img2_1, p_img1],
+        "rating": 4.1,
+        "colors": ["White", "Navy", "Red"],
         "sizes": ["S", "M", "L"],
         "inStock": true,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
@@ -115,7 +115,7 @@ export const products = [
         "price": 200,
         "image": [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
         "rating": 4.5,
-        "colors": ["White", "Navy"],
+        "colors": ["White", "Navy", "Blue"],
         "sizes": ["M", "L", "XL"],
         "inStock": true,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
@@ -125,7 +125,7 @@ export const products = [
         "name": "Girls Round Neck Cotton Top",
         "category": "Topwear",
         "price": 220,
-        "image": [p_img3],
+        "image": [p_img3, p_img2_4],
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "L", "XL"],
@@ -139,9 +139,9 @@ export const products = [
         "price": 110,
         "image": [p_img4],
         "rating": 4.5,
-        "colors": ["White", "Navy"],
+        "colors": ["White", "Green"],
         "sizes": ["S", "M", "XXL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -177,7 +177,7 @@ export const products = [
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -213,7 +213,7 @@ export const products = [
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -285,7 +285,7 @@ export const products = [
         "rating": 5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -357,7 +357,7 @@ export const products = [
         "rating": 4.8,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -441,7 +441,7 @@ export const products = [
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -501,7 +501,7 @@ export const products = [
         "rating": 4.8,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -549,7 +549,7 @@ export const products = [
         "rating": 3.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -585,7 +585,7 @@ export const products = [
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {
@@ -645,7 +645,7 @@ export const products = [
         "rating": 4.5,
         "colors": ["White", "Navy"],
         "sizes": ["S", "M", "L", "XL"],
-        "inStock": true,
+        "inStock": false,
         "description": "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment."
     },
     {

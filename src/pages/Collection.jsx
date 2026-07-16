@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import  { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../data/products';
 import TitleSection from '../components/TitleSection';
@@ -61,7 +61,7 @@ function Collection() {
 
     return (
         <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
-            
+
             {/* Filter Options */}
             <div className="min-w-60">
                 <div onClick={() => setShowFilter(!showFilter)} className='my-2 text-md md:text-xl flex items-center cursor-pointer gap-2'>

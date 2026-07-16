@@ -1,8 +1,13 @@
 import { Link, NavLink } from 'react-router';
 import Logo from './Logo';
+import { ShoppingCart } from 'lucide-react';
+import { useContext } from 'react';
+import { ShopContext } from '../context/ShopContext';
 
 function Navbar() {
-    
+
+    const { cartItems } = useContext(ShopContext);
+
     const navLinkBase = "relative px-1 mx-2 bg-transparent font-bold tracking-wider transition-colors duration-200 ease-in-out py-1";
 
     const activeStyles = "bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-pink-500 after:to-pink-400";
@@ -22,10 +27,10 @@ function Navbar() {
 
             <li>
                 <NavLink
-                    to='/collection'
+                    to='/product'
                     className={({ isActive }) => `${navLinkBase} ${isActive ? activeStyles : notActiveStyles}`}
                 >
-                    COLLECTION
+                    PRODUCTS
                 </NavLink>
             </li>
         </>
@@ -56,7 +61,15 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <a className="btn relative flex items-center justify-center p-2">
+                    {/* Shopping Cart Icon */}
+                    <ShoppingCart className="h-6 w-6 text-gray-700" />
+
+                    {/* Cart Item Count Badge */}
+                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white ring-2 ring-white">
+                        {cartItems.length}
+                    </span>
+                </a>
             </div>
         </div>
     )
