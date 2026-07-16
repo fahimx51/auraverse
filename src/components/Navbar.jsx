@@ -1,24 +1,38 @@
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import Logo from './Logo';
 
 function Navbar() {
-    const isActiveClass = "px-1 border-[#92bb17] mx-2 border-b-2 rounded-none bg-transparent";
-    const notActiveClass = "px-1 bg-transparent mx-2 hover:border-b-2 hover:border-gray-300 text-secondary rounded-none";
+    
+    const navLinkBase = "relative px-1 mx-2 bg-transparent font-bold tracking-wider transition-colors duration-200 ease-in-out py-1";
 
-    const navItems = <>
-        <li><NavLink to='/' className={({ isActive }) =>
-            `${isActive ? `${isActiveClass}` : `${notActiveClass}`}`}>
-            HOME
-        </NavLink></li>
+    const activeStyles = "bg-gradient-to-r from-pink-500 to-pink-400 bg-clip-text text-transparent after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-gradient-to-r after:from-pink-500 after:to-pink-400";
 
-        <li><NavLink to='/collection' className={({ isActive }) =>
-            `${isActive ? `${isActiveClass}` : `${notActiveClass}`}`}>
-            PRODUCTS
-        </NavLink></li>
-    </>
+    const notActiveStyles = "text-gray-400 hover:text-gray-600 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-gray-300 after:transition-all after:duration-200";
+
+    const navItems = (
+        <>
+            <li>
+                <NavLink
+                    to='/'
+                    className={({ isActive }) => `${navLinkBase} ${isActive ? activeStyles : notActiveStyles}`}
+                >
+                    HOME
+                </NavLink>
+            </li>
+
+            <li>
+                <NavLink
+                    to='/collection'
+                    className={({ isActive }) => `${navLinkBase} ${isActive ? activeStyles : notActiveStyles}`}
+                >
+                    COLLECTION
+                </NavLink>
+            </li>
+        </>
+    );
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,9 +46,9 @@ function Navbar() {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">
+                <Link to='/' className="btn btn-ghost text-xl">
                     <Logo />
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

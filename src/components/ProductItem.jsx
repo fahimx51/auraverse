@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 
 function ProductItem({product}) {
-    console.log(product);
+    // console.log(product);
     return (
         <Link to={`/product/${product.id}`} className="text-gray-700 cursor-pointer">
             <div className='overflow-hidden'>
