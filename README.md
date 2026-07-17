@@ -1,16 +1,82 @@
-# React + Vite
+# Auraverse - Fashion Store Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive fashion e-commerce storefront built as part of the **Oxivos Frontend Developer Project Task**.
 
-Currently, two official plugins are available:
+The application is built using **React + Vite** and demonstrates a clean, component-based architecture with client-side routing, global state management, and a responsive user interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Live Demo
 
-## React Compiler
+https://auraverse-task.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔗 Repository
 
-## Expanding the ESLint configuration
+https://github.com/yourusername/auraverse
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👨‍💻 Developer
+
+**Foisal Ahmed Fahim**
+
+---
+
+## 📌 Project Overview
+
+This project is a frontend-only fashion store that uses **local dummy data** to simulate an e-commerce experience. It focuses on clean UI, reusable components, responsive design, and proper state management without any backend integration.
+
+---
+
+## 🚀 Tech Stack
+
+- React
+- Vite
+- React Router
+- Context API
+- Tailwind CSS
+- DaisyUI
+- React Hot Toast
+- Lucide React
+
+---
+
+## ✨ Features
+
+- Responsive design for mobile, tablet, and desktop
+- Home page with featured products
+- Product listing page with category filtering and price sorting
+- Product details page with size/color selection
+- Shopping cart with quantity controls and total price calculation
+- Global cart state using Context API
+- Local dummy product data
+- Toast notifications for cart actions
+- Reusable and modular components
+- Clean folder structure
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+├── context/
+├── data/
+├── layouts/
+├── pages/
+├── routes/
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## ✅ Task Requirements Implemented
+
+- ✔ Built with React (Vite)
+- ✔ Local dummy data
+- ✔ Fully responsive layout
+- ✔ Client-side routing using React Router
+- ✔ Cart management using Context API
+- ✔ Loading and empty states
+- ✔ Modular and reusable components
+- ✔ Live deployment on Vercel
