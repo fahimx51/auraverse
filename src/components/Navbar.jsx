@@ -61,7 +61,7 @@ function Navbar() {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn relative flex items-center justify-center p-2">
+                <Link to="/cart" className="btn relative flex items-center justify-center p-2">
                     {/* Shopping Cart Icon */}
                     <ShoppingCart className="h-6 w-6 text-gray-700" />
 
@@ -69,7 +69,7 @@ function Navbar() {
                     <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white ring-2 ring-white">
                         {cartItems.length}
                     </span>
-                </a>
+                </Link>
             </div>
         </div>
     )

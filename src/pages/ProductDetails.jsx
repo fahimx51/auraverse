@@ -2,10 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import { ShopContext } from "../context/ShopContext";
 import { ArrowLeft } from "lucide-react";
+import BackButton from "../components/BackButton";
 
 function ProductDetails() {
     const { id } = useParams();
-    const navigate = useNavigate();
+
     const { products, setCartItems } = useContext(ShopContext);
 
     const [product, setProduct] = useState(null);
@@ -41,7 +42,7 @@ function ProductDetails() {
             alert("Sorry, this product is currently out of stock.");
         }
         else {
-            setCartItems(prevItems => [...prevItems, product]);
+            setCartItems(prevItems => [...prevItems, product.id]);
         }
     }
 
@@ -49,13 +50,7 @@ function ProductDetails() {
         <div className="px-4 py-6 md:px-0 md:py-10 transition-opacity ease-in duration-500 opacity-100">
 
             {/* Back Button */}
-            <button
-                onClick={() => navigate(-1)}
-                className="flex items-center gap-2 text-gray-500 hover:cursor-pointer hover:text-pink-500 font-medium text-sm md:text-md lg:text-lg mb-6 transition-colors duration-200 group"
-            >
-                <ArrowLeft className="h-5 w-5 transition-transform duration-200 group-hover:-translate-x-1" />
-                Back to Shop
-            </button>
+            <BackButton text="Go Back" />
 
             {/* Product Data Layout */}
             <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
@@ -116,10 +111,10 @@ function ProductDetails() {
                         <p className="pl-2 text-xs text-gray-500">({product.rating} Rating)</p>
                     </div>
 
-                    
+
                     <p className="mt-4 text-2xl sm:text-3xl font-black text-slate-900">$ {product.price}</p>
 
-            
+
                     <p className="mt-4 text-gray-500 text-sm sm:text-base leading-relaxed md:w-4/5">{product.description}</p>
 
                     {/* Select Color Option */}
