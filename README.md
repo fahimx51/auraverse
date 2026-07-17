@@ -8,9 +8,6 @@ The application is built using **React + Vite** and demonstrates a clean, compon
 
 https://auraverse-task.vercel.app/
 
-## 🔗 Repository
-
-https://github.com/yourusername/auraverse
 
 ## 👨‍💻 Developer
 
@@ -46,6 +43,7 @@ This project is a frontend-only fashion store that uses **local dummy data** to 
 - Shopping cart with quantity controls and total price calculation
 - Global cart state using Context API
 - Local dummy product data
+- Cart data persisted in local storage
 - Toast notifications for cart actions
 - Reusable and modular components
 - Clean folder structure
@@ -74,6 +72,7 @@ src/
 
 - ✔ Built with React (Vite)
 - ✔ Local dummy data
+- ✔ Cart data persisted in local storage (Extra)
 - ✔ Fully responsive layout
 - ✔ Client-side routing using React Router
 - ✔ Cart management using Context API
