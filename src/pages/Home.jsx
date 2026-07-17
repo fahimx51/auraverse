@@ -6,7 +6,6 @@ function Home() {
         <div className="my-2">
             <Hero />
             <FeaturedProducts />
-
         </div>
     )
 }

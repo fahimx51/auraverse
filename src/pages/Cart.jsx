@@ -2,12 +2,13 @@ import { useContext, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { Trash2, Plus, Minus, ShoppingBag, User, Phone, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import { toast } from 'react-hot-toast';
 
 function Cart() {
     const { products, cartItems, setCartItems } = useContext(ShopContext);
     const navigate = useNavigate();
 
-   
+
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -19,7 +20,7 @@ function Cart() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    // 1. Calculate and map items from ID array [55, 55, 23]
+    // Calculate and map items from ID array [55, 55, 23]
     const counts = {};
     cartItems.forEach((id) => {
         counts[id] = (counts[id] || 0) + 1;
@@ -66,23 +67,23 @@ function Cart() {
     const handleCheckout = (e) => {
         e.preventDefault();
         if (!formData.name || !formData.phone || !formData.address) {
-            alert("Please fill in all shipping fields before checking out.");
+            toast.error("Please fill in all shipping fields before checking out.");
             return;
         }
 
         // console.log("Order Placed:", { items: cartData, shipping: formData, total: cartSubtotal });
-        alert(`Thank you, ${formData.name}! Your order has been placed successfully.`);
+        toast.success(`Thank you, ${formData.name}! Your order has been placed successfully.`);
         setCartItems([]); // Clear cart
     };
 
     // Empty Cart View
     if (cartData.length === 0) {
         return (
-            <div className="flex flex-col items-center justify-center py-24 px-4 text-center">
+            <div className="flex flex-col items-center justify-center py-24 px-4 text-center min-h-screen">
                 <div className="bg-pink-50 p-6 rounded-full mb-4">
                     <ShoppingBag className="h-12 w-12 text-pink-500" />
                 </div>
-                <h2 className="text-2xl font-black text-slate-800 mb-2">Your cart is feeling lonely</h2>
+                <h2 className="text-xl max-sm:text-lg font-black text-slate-800 mb-2">Your cart is feeling lonely</h2>
                 <p className="text-gray-500 mb-6 max-w-xs text-sm">Add some amazing items to it and make it happy!</p>
                 <button
                     onClick={() => navigate('/product')}
@@ -117,7 +118,7 @@ function Cart() {
                                     key={item.id}
                                     className="p-4 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group transition-all"
                                 >
-                                    
+
                                     <div className="flex gap-4 w-full sm:w-auto">
                                         <img
                                             src={item.image[0]}
@@ -133,10 +134,10 @@ function Cart() {
                                         </div>
                                     </div>
 
-                                    
+
                                     <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-4 pt-3 sm:pt-0 border-t sm:border-0 border-gray-50">
 
-                                        
+
                                         <div className="flex items-center border border-gray-200 rounded-xl bg-white shadow-sm">
                                             <button
                                                 onClick={() => updateQuantity(item.id, 'decrease')}
@@ -155,7 +156,7 @@ function Cart() {
                                             </button>
                                         </div>
 
-                                        
+
                                         <button
                                             onClick={() => updateQuantity(item.id, 'delete')}
                                             className="p-2.5 text-gray-400 hover:text-rose-500 hover:bg-rose-50/50 rounded-xl transition-all duration-200 border border-transparent hover:border-rose-100"
